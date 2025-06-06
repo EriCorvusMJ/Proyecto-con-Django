@@ -1,47 +1,23 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
-<div class="container mt-4">
+<div class="container mt-5">
     <h2>Editar Perfil</h2>
-    <form method="POST" enctype="multipart/form-data">
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        {{ form.non_field_errors }}
-        
-        <div class="mb-3">
-            <label for="id_username" class="form-label">Usuario</label>
-            {{ form.username.errors }}
-            {{ form.username }}
-        </div>
-
-        <div class="mb-3">
-            <label for="id_name" class="form-label">Nombre</label>
-            {{ form.name.errors }}
-            {{ form.name }}
-        </div>
-
-        <div class="mb-3">
-            <label for="id_phone" class="form-label">Teléfono</label>
-            {{ form.phone.errors }}
-            {{ form.phone }}
-        </div>
-
-        <div class="mb-3">
-            <label for="id_email" class="form-label">Correo electrónico</label>
-            {{ form.email.errors }}
-            {{ form.email }}
-        </div>
-
-        <div class="mb-3">
-            <label for="id_photo" class="form-label">Foto</label><br>
-            {% if form.instance.photo %}
-                <img src="{{ form.instance.photo.url }}" alt="Foto actual" style="max-height: 150px; margin-bottom:10px;">
-            {% endif %}
-            {{ form.photo.errors }}
-            {{ form.photo }}
-        </div>
-
-        <button type="submit" class="btn btn-primary">Guardar cambios</button>
-        <a href="{% url 'tables' %}" class="btn btn-secondary">Cancelar</a>
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success">Guardar Cambios</button>
+        <!-- Botón para regresar al perfil -->
+        <a href="{% url 'profile' %}" class="btn btn-secondary ms-2">Regresar al Perfil</a>
     </form>
 </div>
 {% endblock %}

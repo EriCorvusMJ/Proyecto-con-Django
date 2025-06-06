@@ -19,7 +19,7 @@
         </nav>
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
           <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-            <form action="{% url 'tables' %}" method="GET" class="d-flex">
+            <form action="{% url 'bitacora' %}" method="GET" class="d-flex">
               <div class="input-group">
                 <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
                 <input name="filter" type="text" class="form-control" placeholder="Buscar..." value="{{ request.GET.filter }}">
@@ -134,7 +134,7 @@
     <div class="card mb-4">
       <div class="card-header pb-0">
         <h6>Authors table</h6>
-        <a href="{% url 'export_profiles' %}" class="btn btn-success btn-sm mt-2">Exportar Profiles</a>
+<a href="{% url 'export_profiles' %}" class="btn btn-success btn-sm mt-2">Exportar Profil</a>
 
       </div>
       <div class="card-body px-0 pt-0 pb-2">
@@ -167,13 +167,15 @@
                   <p class="text-xs font-weight-bold mb-0">{{ profile.name }}</p>
                   <p class="text-xs text-secondary mb-0">{{ profile.phone }}</p>
                 </td>
+                {%if profile.estatus%}
                 <td class="align-middle text-center text-sm">
-                  {% if profile.status == 'online' %}
                     <span class="badge badge-sm bg-gradient-success">Online</span>
+              </td>
                   {% else %}
+                <td class="align-middle text-center text-sm">
                     <span class="badge badge-sm bg-gradient-secondary">Offline</span>
-                  {% endif %}
                 </td>
+                {% endif %}
                 <td class="align-middle text-center">
                   <span class="text-secondary text-xs font-weight-bold">{{ profile.fecha_creacion }}</span>
                 </td>

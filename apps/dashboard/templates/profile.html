@@ -32,9 +32,9 @@
             </div>
             <ul class="navbar-nav justify-content-end">
               <li class="nav-item d-flex align-items-center">
-                <a href="javascript:;" class="nav-link text-white font-weight-bold px-0">
+                <a href="{% url 'close' %}" class="nav-link text-white font-weight-bold px-0">
                   <i class="fa fa-user me-sm-1"></i>
-                  <span class="d-sm-inline d-none">Sign In</span>
+                  <span class="d-sm-inline d-none">{{user}}</span>
                 </a>
               </li>
               <li class="nav-item d-xl-none ps-3 pe-0 d-flex align-items-center">
@@ -146,7 +146,7 @@
                   {{profile.name}}
                 </h5>
                 <p class="mb-0 font-weight-bold text-sm">
-                  Public Relations
+                  {{profile.email}}
                 </p>
               </div>
             </div>
@@ -178,8 +178,19 @@
           </div>
         </div>
       </div>
+
       <div class="container-fluid py-4">
         <div class="row">
+
+          {% for message in messages %}
+          
+<div class="custom-alert alert-dismissible fade show" role="alert">
+  <span class="alert-icon"><i class="ni ni-like-2"></i></span>
+  <span class="alert-text"><strong>{{message}}</strong> PRUEBA</span>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">&times;</button>
+</div>
+          {% endfor %}
+
           <div class="col-md-8">
             <!--FORMULARIO-->
             <form action="{% url 'profile' %}" method='POST' class="forms-sample" enctype="multipart/form-data">
@@ -188,6 +199,7 @@
                 <div class="card-header pb-0">
                   <div class="d-flex align-items-center">
                     <p class="mb-0">Edit Profile</p>
+                    <a href="{% url 'edit_profile' %}" class="btn btn-warning">Editar Perfil</a>
                     <button class="btn btn-primary btn-sm ms-auto">Enviar</button>
                   </div>
                 </div>
@@ -197,25 +209,25 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="username" class="form-control-label">Username</label>
-                        <input id="username" name='username' class="form-control" type="text" requiered>
+                        <input id="username" name='username' class="form-control" type="text" required value="{{profile.username}}">
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="email" class="form-control-label">Email </label>
-                        <input id="email" name='email' class="form-control" type="email" required>
+                        <input id="email" name='email' class="form-control" type="email" required value="{{profile.email}}">
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="name" class="form-control-label">Nombre</label>
-                        <input id="name" name="name" class="form-control" type="text" required>
+                        <input id="name" name="name" class="form-control" type="text" required value="{{profile.name}}">
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="phone" class="form-control-label">Telefono</label>
-                        <input id="phone" name="phone" class="form-control" type="text" requiered>
+                        <input id="phone" name="phone" class="form-control" type="text" required value="{{profile.phone}}">
                       </div>
                     </div>
                     <div class="col-md-12">
@@ -308,10 +320,10 @@
                 </div>
                 <div class="text-center mt-4">
                   <h5>
-                    Mark Davis<span class="font-weight-light">, 35</span>
+                    {{profile.name}}<span class="font-weight-light">, 35</span>
                   </h5>
                   <div class="h6 font-weight-300">
-                    <i class="ni location_pin mr-2"></i>Bucharest, Romania
+                    <i class="ni location_pin mr-2"></i>{{profile.email}}
                   </div>
                   <div class="h6 mt-4">
                     <i class="ni business_briefcase-24 mr-2"></i>Solution Manager - Creative Tim Officer
@@ -443,6 +455,81 @@
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="{% static 'assets/js/argon-dashboard.min.js' %}"></script>
-  
+   <script>
+    let inactivityTime = function () {
+      let time;
+      const logout = () => {
+        window.location.href = "{% url 'close' %}";
+      };
+
+      const resetTimer = () => {
+        clearTimeout(time);
+        time = setTimeout(logout, 10000); // 10 segundos
+      };
+
+      window.onload = resetTimer;
+      document.onmousemove = resetTimer;
+      document.onkeypress = resetTimer;
+      document.onclick = resetTimer;
+      document.onscroll = resetTimer;
+    };
+
+    inactivityTime();
+  </script>
 </body>
 {% endblock %}
+<style>
+  .custom-alert {
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    color: white;
+    border-radius: 8px;
+    padding: 1rem 1.5rem;
+    position: relative;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+  }
+
+  .custom-alert .alert-icon {
+    margin-right: 0.8rem;
+    font-size: 1.5rem;
+    color: #ffdd57;
+  }
+
+  .custom-alert .alert-text {
+    flex-grow: 1;
+    font-size: 1.1rem;
+    position: relative;
+  }
+
+  /* Asterisco animado */
+  .custom-alert .alert-text::after {
+    content: " *";
+    color: #ffdd57;
+    font-weight: 900;
+    animation: blink 1.5s infinite;
+    position: absolute;
+    right: -15px;
+    top: 0;
+    font-size: 1.5rem;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  .btn-close {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    opacity: 0.8;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+  }
+
+  .btn-close:hover {
+    opacity: 1;
+  }
+</style>
