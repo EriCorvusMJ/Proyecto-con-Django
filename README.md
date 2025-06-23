@@ -51,10 +51,8 @@ Solo necesitas:
 ---
 
 ### 4️⃣ Navegar a la carpeta del proyecto
+cd ruta/a/tu/carpeta/mi_dashboard
 
-```bash
-
-cd  Users\al222\mi_dashboard> 
 
 5️⃣ Instalar dependencias necesarias
 pip install -r requirements.txt
@@ -83,3 +81,7 @@ http://127.0.0.1:8000/
 Guadalupe Erizeth Mejía
 Estudiante de Tecnologías de la Información – Área Desarrollo de Software Multiplataforma
 Universidad Tecnológica del Valle de Toluca
+
+```bash
+
+
