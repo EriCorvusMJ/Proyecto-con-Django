@@ -3,7 +3,11 @@ from django.urls import path
 from apps.dashboard import views
 from django.contrib.auth import views as auth_views
 from django.conf import settings
+from django.urls import path
+
 from django.conf.urls.static import static
+from apps.tasks import views as task_view
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -34,6 +38,8 @@ urlpatterns = [
     path('edit_profile/', views.editar_profile, name='edit_profile'),
     path('profile/', views.profile, name='profile'),
 
+    path('tasks/', task_view.tasks, name='tasks'),
 
+  
 
 ] 
