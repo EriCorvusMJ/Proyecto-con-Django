@@ -82,11 +82,11 @@ venv\Scripts\activate
 source venv/bin/activate
 ```
 
-Luego continúa con la instalación de dependencias.
+Posteriormente, continúa con la instalación de dependencias.
 
 ---
 
-### 6️⃣ Instalar las dependencias
+### 6️⃣ Instalación de las dependencias
 
 Escribe este comando y presiona Enter:
 
@@ -97,20 +97,38 @@ pip install -r requirements.txt
 Esto instalará automáticamente los paquetes que requiere Django y otras herramientas del sistema.
 
 ---
+### 7️⃣ Configuración de variables de entorno
 
-### 7️⃣ Aplicar las migraciones
+Para mantener seguras tus credenciales y parámetros de conexión, crea un archivo llamado .env en la raíz del proyecto y agrega lo siguiente (personalízalo según tu entorno):
 
-Ejecuta el siguiente comando:
+```bash
+SECRET_KEY="aquí_va_tu_clave_secreta"
+ENGINE=django.db.backends.postgresql_psycopg2
+DB_NAME="nombre_de_tu_base"
+DB_USER="usuario_de_la_base"
+DB_PASSWORD="tu_contraseña"
+DB_HOST="localhost"  # o la IP del servidor si es remota
+DB_PORT="5432"
+
+```
+🔒 Estas variables de entorno permiten que Django se conecte a la base de datos PostgreSQL de forma segura y flexible.
+
+📌 Importante: No compartas tu archivo .env en GitHub ni lo subas al repositorio. Asegúrate de incluirlo en tu .gitignore.
+
+---
+### 8️⃣ Creación de la base de datos  
+
+Ejecuta el siguiente comandoy presiona Enter:
 
 ```bash
 python manage.py migrate
 ```
 
-Este paso creará las tablas necesarias en la base de datos para que el sistema funcione correctamente.
+Este comando nos permite tener la base de datos para que empeice a funcionar.
 
 ---
 
-### 8️⃣ Iniciar el servidor local
+### 9️⃣ Iniciar el servidor local
 
 Inicia el servidor con:
 
@@ -126,7 +144,7 @@ http://127.0.0.1:8000/
 
 ---
 
-### 9️⃣ Acceder a la aplicación
+### 🔟 Acceder a la aplicación
 
 Abre tu navegador (Chrome, Firefox, Edge...) y entra a:
 
