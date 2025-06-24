@@ -51,37 +51,95 @@ Solo necesitas:
 ---
 
 ### 4️⃣ Navegar a la carpeta del proyecto
-cd ruta/a/tu/carpeta/mi_dashboard
 
-
-5️⃣ Instalar dependencias necesarias
-pip install -r requirements.txt
-Esto instalará automáticamente los paquetes que requiere Django y otras herramientas del sistema.
-
-6️⃣ Aplicar las migraciones
-python manage.py migrate
-Este paso creará las tablas necesarias en la base de datos para que el sistema funcione correctamente.
-
-7️⃣ Iniciar el servidor local
-python manage.py runserver
-Verás un mensaje en consola indicando que el servidor está corriendo en:
-Verás un mensaje en consola indicando que el servidor está corriendo en:
-
-8️⃣ Acceder a la aplicación
-Abre tu navegador (Chrome, Firefox, Edge...) y entra a:
-http://127.0.0.1:8000/
-¡Listo! Ya puedes comenzar a utilizar tu sistema web desarrollado con Django.
-
-
-
-
-
-🙋‍♀️ Autora del proyecto
-
-Guadalupe Erizeth Mejía
-Estudiante de Tecnologías de la Información – Área Desarrollo de Software Multiplataforma
-Universidad Tecnológica del Valle de Toluca
+En la terminal, escribe el siguiente comando y presiona Enter (reemplaza `ruta/a/tu/carpeta` por la ruta donde extrajiste el proyecto):
 
 ```bash
+cd ruta/a/tu/carpeta/mi_dashboard
+```
 
+---
 
+### 5️⃣ (Opcional pero recomendado) Crear un entorno virtual
+
+En la terminal, ejecuta:
+
+```bash
+python -m venv venv
+```
+
+Activa el entorno virtual:
+
+- **En Windows**:
+
+```bash
+venv\Scripts\activate
+```
+
+- **En Linux/Mac**:
+
+```bash
+source venv/bin/activate
+```
+
+Luego continúa con la instalación de dependencias.
+
+---
+
+### 6️⃣ Instalar las dependencias
+
+Escribe este comando y presiona Enter:
+
+```bash
+pip install -r requirements.txt
+```
+
+Esto instalará automáticamente los paquetes que requiere Django y otras herramientas del sistema.
+
+---
+
+### 7️⃣ Aplicar las migraciones
+
+Ejecuta el siguiente comando:
+
+```bash
+python manage.py migrate
+```
+
+Este paso creará las tablas necesarias en la base de datos para que el sistema funcione correctamente.
+
+---
+
+### 8️⃣ Iniciar el servidor local
+
+Inicia el servidor con:
+
+```bash
+python manage.py runserver
+```
+
+Verás un mensaje en consola indicando que el servidor está corriendo en:
+
+```
+http://127.0.0.1:8000/
+```
+
+---
+
+### 9️⃣ Acceder a la aplicación
+
+Abre tu navegador (Chrome, Firefox, Edge...) y entra a:
+
+```
+http://127.0.0.1:8000/
+```
+
+¡Listo! 🎉 Ya puedes comenzar a utilizar tu sistema web desarrollado con Django.
+
+---
+
+## 🙋‍♀️ Autora del proyecto
+
+**Guadalupe Erizeth Mejía**  
+Estudiante de Tecnologías de la Información – Área Desarrollo de Software Multiplataforma  
+**Universidad Tecnológica del Valle de Toluca**
