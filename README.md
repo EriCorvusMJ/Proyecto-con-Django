@@ -37,13 +37,13 @@ Solo necesitas:
 
 ### 2️⃣ Obtener el proyecto
 
-1. Dirígete al botón verde **`Code`** en esta página.
+1. Dirígete al botón verde **`Code`** en la pagina de GitHub del proyecto.
 2. Selecciona la opción **`Download ZIP`**.
 3. Extrae el contenido del archivo ZIP en una carpeta de tu computadora.
 
 ---
 
-### 3️⃣ Abrir la terminal
+### 3️⃣ Abrir la terminal o consola
 
 - En **Windows**: abre el símbolo del sistema (`cmd`) o PowerShell.
 - En **Linux/macOS**: abre la Terminal.
@@ -51,7 +51,10 @@ Solo necesitas:
 ---
 
 ### 4️⃣ Navegar a la carpeta del proyecto
-cd ruta/a/tu/carpeta/mi_dashboard
+En la terminal, escribe el siguiente comando y presiona Enter:
+
+```bash
+cd ruta/a/tu/carpeta/snake    📋
 
 
 5️⃣ Instalar dependencias necesarias
