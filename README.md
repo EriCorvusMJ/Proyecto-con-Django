@@ -51,37 +51,6 @@ Solo necesitas:
 ---
 
 ### 4️⃣ Navegar a la carpeta del proyecto
-cd ruta/a/tu/carpeta/mi_dashboard
-
-
-5️⃣ Instalar dependencias necesarias
-pip install -r requirements.txt
-Esto instalará automáticamente los paquetes que requiere Django y otras herramientas del sistema.
-
-6️⃣ Aplicar las migraciones
-python manage.py migrate
-Este paso creará las tablas necesarias en la base de datos para que el sistema funcione correctamente.
-
-7️⃣ Iniciar el servidor local
-python manage.py runserver
-Verás un mensaje en consola indicando que el servidor está corriendo en:
-Verás un mensaje en consola indicando que el servidor está corriendo en:
-
-8️⃣ Acceder a la aplicación
-Abre tu navegador (Chrome, Firefox, Edge...) y entra a:
-http://127.0.0.1:8000/
-¡Listo! Ya puedes comenzar a utilizar tu sistema web desarrollado con Django.
-
-
-
-
-
-🙋‍♀️ Autora del proyecto
-
-Guadalupe Erizeth Mejía
-Estudiante de Tecnologías de la Información – Área Desarrollo de Software Multiplataforma
-Universidad Tecnológica del Valle de Toluca
 
 ```bash
-
-
+cd ruta/a/tu/carpeta/mi_dashboard
